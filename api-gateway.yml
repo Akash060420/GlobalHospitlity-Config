@@ -1,0 +1,26 @@
+server:
+  port: 8085
+spring:    
+  cloud:
+    gateway:
+      routes:
+      - id: RESTAURANT-SEARCH-SERVICE
+        uri: lb://RESTAURANT-SEARCH-SERVICE
+        predicates:
+        - Path=/restaurant/**
+        
+      - id: ORDER-MANAGEMENT-SERVICE
+        uri: lb://ORDER-MANAGEMENT-SERVICE
+        predicates:
+        - Path=/order/**,/item/**
+        
+      - id: CUSTOMER-MANAGEMENT-SERVICE
+        uri: lb://CUSTOMER-MANAGEMENT-SERVICE
+        predicates:
+        - Path=/customer/**
+        
+      - id: REVIEW-MANAGEMENT-SERVICE
+        uri: lb://REVIEW-MANAGEMENT-SERVICE
+        predicates:
+        - Path=/review/**
+  
