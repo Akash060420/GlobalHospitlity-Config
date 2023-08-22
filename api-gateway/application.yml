@@ -23,4 +23,7 @@ spring:
         uri: lb://REVIEW-MANAGEMENT-SERVICE
         predicates:
         - Path=/review/**
-  
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://discover-server:8761/eureka/
